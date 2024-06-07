@@ -1,12 +1,12 @@
 import style from './style.module.css';
 
-const Header = () => {
+const Header = ({title, descr}) => {
     return (
         <header className={style.root}>
             <div className={style.forest}></div>
             <div className={style.container}>
-                    <h1>this is title Header</h1>
-                    <p>this is description</p>
+                    <h1>{title}</h1>
+                    <p>{descr}</p>
                 </div>
         </header>
     )

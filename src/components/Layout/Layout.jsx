@@ -1,11 +1,11 @@
 import style from './style.module.css';
 
-const Layout = ({title, descr, urlBg, colorBg}) => {
+const Layout = ({title, urlBg, colorBg, children}) => {
 
     const backdrop = urlBg ? {backgroundImage: `url(${urlBg})`} : {backgroundColor: colorBg};
-    console.log(backdrop)
+
     return(
-        <section  className={style.root}   style={backdrop}>
+        <section  className={style.root} style={backdrop}>
             <div className={style.wrapper}>
                 <article>
                     <div className={style.title}>
@@ -13,7 +13,7 @@ const Layout = ({title, descr, urlBg, colorBg}) => {
                         <span className={style.separator}></span>
                     </div>
                     <div className={style.desc.full}>
-                        <p>{descr}</p>
+                        {children}
                     </div>
                 </article>  
             </div>
