@@ -1,6 +1,7 @@
-import style from './style.module.css';
+import { useState } from 'react';
 import cn from 'classnames';
 import logoBack from '../../assets/card-back-side.jpeg';
+import style from './style.module.css';
 
 const PokemonCard = ({options}) => {
     const {
@@ -15,13 +16,18 @@ const PokemonCard = ({options}) => {
         bottom
         }
     } = options;
+    const [isActive, setActive] = useState(false)
+
+    const handleClick = () => {
+        setActive(!isActive)
+    }
 
     return (
-        <div className={style.root}>
-            <div className={style.pokemonCard}>
+        <div className={style.root} onClick={handleClick}>
+            <div className={cn(style.pokemonCard, {[style.active]: isActive})}>
                 <div className={style.cardFront}>
                     <div className={cn(style.wrap, style.front)}>
-                        <div className={cn(style.pokemon, style.type)}>
+                        <div className={cn(style.pokemon, style[type])}>
                             <div className={style.values}>
                                 <div className={cn(style.count, style.top)}>{top}</div>
                                 <div className={cn(style.count, style.right)}>{right}</div>
